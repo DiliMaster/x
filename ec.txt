@@ -1,0 +1,22 @@
+function softWriteToArray(originalArray, index, newValue) {
+  // Create a copy of the original array to avoid modifying it
+  const newArray = [...originalArray];
+  
+  // Check if the index is valid
+  if (index >= 0 && index < newArray.length) {
+    // Update the value at the specified index
+    newArray[index] = newValue;
+    return newArray;
+  } else {
+    // Return the original array if the index is invalid
+    console.warn(`Index ${index} is out of bounds for array of length ${newArray.length}`);
+    return originalArray;
+  }
+}
+
+// Example usage
+const myArray = [1, 2, 3, 4, 5];
+const updatedArray = softWriteToArray(myArray, 2, 10);
+
+console.log("Original array:", myArray);        // [1, 2, 3, 4, 5]
+console.log("Updated array:", updatedArray);    // [1, 2, 10, 4, 5]
